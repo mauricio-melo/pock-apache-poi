@@ -1,0 +1,6 @@
+table:
+  start: 6
+  columns:
+    - Nome
+    - Status
+

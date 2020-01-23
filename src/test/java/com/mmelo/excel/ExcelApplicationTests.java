@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.time.LocalDate;
+
 @SpringBootTest
 class ExcelApplicationTests {
 
@@ -14,7 +16,7 @@ class ExcelApplicationTests {
 
 	@Test
 	void contextLoads() throws Exception {
-		generateExcelWithImageCell.create();
+		generateExcelWithImageCell.create(LocalDate.now(), LocalDate.now());
 	}
 
 }

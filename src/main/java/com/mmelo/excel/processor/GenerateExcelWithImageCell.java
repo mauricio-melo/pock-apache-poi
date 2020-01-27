@@ -23,7 +23,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class GenerateExcelWithImageCell {
 
-    private static final String fileName = "/home/mauriciomelo/excel/97.xls";
+    private static final String fileName = "/home/mauriciomelo/excel/99.xls";
     private static final String imagePath = "/home/mauriciomelo/excel/rede-logo.png";
 
     public void create(final LocalDate startDate, final LocalDate endDate) throws Exception {

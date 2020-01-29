@@ -9,6 +9,7 @@ import org.apache.poi.util.IOUtils;
 import org.apache.poi.util.Units;
 import org.apache.poi.xssf.usermodel.*;
 import org.springframework.stereotype.Component;
+import org.springframework.util.ResourceUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -23,7 +24,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class GenerateExcelWithImageCell {
 
-    private static final String fileName = "/home/mauriciomelo/excel/99.xls";
+    private static final String fileName = "/home/mauriciomelo/excel/101.xls";
     private static final String imagePath = "/home/mauriciomelo/excel/rede-logo.png";
 
     public void create(final LocalDate startDate, final LocalDate endDate) throws Exception {
@@ -74,13 +75,14 @@ public class GenerateExcelWithImageCell {
         sheet.addMergedRegion(new CellRangeAddress(0,0,0,1));
 
         //inserção da imagem
-        insertImage((XSSFSheet)sheet, wb);
+        insertImage(sheet, wb);
     }
 
-    private void insertImage(final XSSFSheet sheet, final Workbook wb) throws Exception {
+    private void insertImage(final Sheet sheet, final Workbook wb) throws Exception {
 
+        File file = ResourceUtils.getFile("classpath:images/rede-logo.png");
         //captura da imagem
-        final InputStream is = new FileInputStream(imagePath);
+        final InputStream is = new FileInputStream(file);
         final int pictureIdx = wb.addPicture(IOUtils.toByteArray(is), Workbook.PICTURE_TYPE_JPEG);
         is.close();
 
